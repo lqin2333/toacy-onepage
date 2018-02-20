@@ -21,8 +21,8 @@ function toacy_onepage_widgets_init() {
 		'id'            => 'home-sections',
 		'description'   => __( 'Add page widgets here to appear in home page.', 'toacy-onepage' ),
 		'before_widget' => '<section>',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
+		'after_widget'  => '</section><hr class="mt-0 mb-0 ">',
+		'before_title'  => '<h2 class="section-title font-alt align-left mb-70 mb-sm-40">',
 		'after_title'   => '</h2>',
 	) );
 
@@ -79,7 +79,7 @@ class one_page_section_widget extends WP_Widget {
    }
 
    function form( $instance ) {
-      $defaults[ 'about_menu_id' ] = '';
+      $defaults[ 'menu_id' ] = '';
       $defaults[ 'title' ] = '';
       $defaults[ 'text' ] = '';
       $defaults[ 'page_id' ] = '';
@@ -89,7 +89,7 @@ class one_page_section_widget extends WP_Widget {
 
       $instance = wp_parse_args( (array) $instance, $defaults );
 
-      $about_menu_id = esc_attr( $instance[ 'about_menu_id' ] );
+      $menu_id = esc_attr( $instance[ 'menu_id' ] );
       $title = esc_attr( $instance[ 'title' ] );
       $text = esc_textarea( $instance['text'] );
       $page_id = absint( $instance[ 'page_id' ] );
@@ -97,11 +97,11 @@ class one_page_section_widget extends WP_Widget {
       $button_url = esc_url( $instance[ 'button_url' ] );
       $button_icon = esc_attr( $instance[ 'button_icon' ] );
       ?>
-      <p><?php _e( 'Note: Enter the About Section ID and use same for Menu item. Only used for One Page Menu.', 'toacy-onepage' ); ?></p>
+      <p><?php _e( 'Note: Enter the Page Section ID and use same for Menu item. Only used for One Page Menu.', 'toacy-onepage' ); ?></p>
 
       <p>
-         <label for="<?php echo $this->get_field_id( 'about_menu_id' ); ?>"><?php _e( 'About Section ID:', 'toacy-onepage' ); ?></label>
-         <input id="<?php echo $this->get_field_id( 'about_menu_id' ); ?>" name="<?php echo $this->get_field_name( 'about_menu_id' ); ?>" type="text" value="<?php echo $about_menu_id; ?>" />
+         <label for="<?php echo $this->get_field_id( 'menu_id' ); ?>"><?php _e( 'Page Section ID:', 'toacy-onepage' ); ?></label>
+         <input id="<?php echo $this->get_field_id( 'menu_id' ); ?>" name="<?php echo $this->get_field_name( 'menu_id' ); ?>" type="text" value="<?php echo $menu_id; ?>" />
       </p>
 
       <p>
@@ -141,7 +141,7 @@ class one_page_section_widget extends WP_Widget {
 
    function update( $new_instance, $old_instance ) {
       $instance = $old_instance;
-      $instance[ 'about_menu_id' ] = sanitize_text_field( $new_instance[ 'about_menu_id' ] );
+      $instance[ 'menu_id' ] = sanitize_text_field( $new_instance[ 'menu_id' ] );
       $instance[ 'title' ] = sanitize_text_field( $new_instance[ 'title' ] );
 
       if ( current_user_can('unfiltered_html') )
@@ -162,7 +162,7 @@ class one_page_section_widget extends WP_Widget {
       extract( $instance );
 
       global $post;
-      $about_menu_id = isset( $instance[ 'about_menu_id' ] ) ? $instance[ 'about_menu_id' ] : '';
+      $menu_id = isset( $instance[ 'menu_id' ] ) ? $instance[ 'menu_id' ] : '';
       $title = apply_filters( 'widget_title', isset( $instance[ 'title' ] ) ? $instance[ 'title' ] : '');
       $text = apply_filters( 'widget_text', empty( $instance[ 'text' ] ) ? '' : $instance['text'], $instance );
       $page_id = isset( $instance[ 'page_id' ] ) ? $instance[ 'page_id' ] : '';
@@ -171,14 +171,12 @@ class one_page_section_widget extends WP_Widget {
       $button_icon = isset( $instance[ 'button_icon' ] ) ? $instance[ 'button_icon' ] : '';
 
       $section_id = '';
-      if( !empty( $about_menu_id ) )
-         $section_id = 'id="' . $about_menu_id . '"';
+      if( !empty( $menu_id ) )
+         $section_id = 'id="' . $menu_id . '"';
 
       echo $before_widget; ?>
-      <div <?php echo $section_id; ?> >
-         <div class="section-wrapper">
-            <div class="tg-container">
-
+      <div <?php echo $section_id; ?>  class="page-section" >
+         <div class="container relative">
                <div class="section-title-wrapper">
                   <?php if( !empty( $title ) ) echo $before_title . esc_html( $title ) . $after_title;
                   if( !empty( $text ) ) { ?>
@@ -187,42 +185,44 @@ class one_page_section_widget extends WP_Widget {
                </div>
 
                <?php if( $page_id ) : ?>
-               <div class="about-content-wrapper tg-column-wrapper clearfix">
+               <div class="page-content-wrapper tg-column-wrapper clearfix">
                   <?php
                   $the_query = new WP_Query( 'page_id='.$page_id );
                   while( $the_query->have_posts() ):$the_query->the_post();
                      $title_attribute = the_title_attribute( 'echo=0' );
 
                      if( has_post_thumbnail() ) { ?>
-                        <div class="about-image tg-column-2">
+                        <div class="page-image tg-column-2">
                            <?php the_post_thumbnail( 'full' ); ?>
                         </div>
                      <?php } ?>
 
-                     <div class="about-content tg-column-2">
+                     <div class="page-content tg-column-2">
                         <?php
-                        $output = '<h2 class="about-title"> <a href="' . get_permalink() . '" title="' . $title_attribute . '" alt ="' . $title_attribute . '">' . get_the_title() . '</a></h2>';
+                        if(empty($title))
+                        {
+                           echo '<h2 class="section-title font-alt align-left mb-70 mb-sm-40">'.get_the_title().'</h2>';
+                        }
+                        // $output = '<h2 class="page-title"> <a href="' . get_permalink() . '" title="' . $title_attribute . '" alt ="' . $title_attribute . '">' . get_the_title() . '</a></h2>';
+                        $output .= '<div class="section-text mb-50 mb-sm-20">' . '<p>' . the_content() . '</p></div>';
 
-                        $output .= '<div class="about-content">' . '<p>' . get_the_excerpt() . '</p></div>';
-
-                        $output .= '<div class="about-btn"> <a href="'. get_permalink() . '">' . __( 'Read more', 'toacy-onepage' ) . '</a>';
+                        // $output .= '<div class="page-btn"> <a href="'. get_permalink() . '">' . __( 'Read more', 'toacy-onepage' ) . '</a>';
 
                         if ( !empty ( $button_text ) ) {
                            $output .= '<a href="' . $button_url . '">' . esc_html( $button_text ) . '<i class="fa ' . $button_icon . '"></i></a>';
                         }
-                        $output .= '</div>';
+                        //$output .= '</div>';
+
                         echo $output;
                         ?>
                      </div>
                   <?php endwhile;
-
                   // Reset Post Data
                   wp_reset_query(); ?>
-               </div><!-- .about-content-wrapper -->
-               <?php endif; ?>
-            </div><!-- .tg-container -->
-         </div>
-      </div>
+            </div><!-- page-content-wrapper  -->
+            <?php endif; ?>
+      </div><!--  container relative -->
+   </div> <!-- page-section -->
    <?php echo $after_widget;
    }
 }

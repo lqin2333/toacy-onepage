@@ -19,6 +19,7 @@
             <!-- Video BG Init -->
             <div class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=BsafeSHN_II',containment:'#home',autoPlay:true, showControls:false, showYTLogo: false, mute:true, startAt:0, opacity:1}">
             </div>
+
              <!-- End Video BG Init -->
   
                 <div class="home-text">
