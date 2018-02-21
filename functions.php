@@ -70,7 +70,7 @@ function wpb_load_widget() {
 }
 add_action( 'widgets_init', 'wpb_load_widget' );
  
-
+/*--- normal page section ---*/
 class one_page_section_widget extends WP_Widget {
    function __construct() {
       $widget_ops = array( 'classname' => 'widget_page_section', 'description' => __( 'Show the page in section.', 'toacy-onepage' ) );

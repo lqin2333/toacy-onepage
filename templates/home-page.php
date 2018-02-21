@@ -16,12 +16,12 @@
             <!-- Hero Content -->
             <div class="home-content container">
   
-            <!-- Video BG Init -->
-            <div class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=BsafeSHN_II',containment:'#home',autoPlay:true, showControls:false, showYTLogo: false, mute:true, startAt:0, opacity:1}">
-            </div>
+                <!-- Video BG Init -->
+                <div class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=BsafeSHN_II',containment:'#home',autoPlay:true, showControls:false, showYTLogo: false, mute:true, startAt:0, opacity:1}"></div>
 
-             <!-- End Video BG Init -->
-  
+               
+                 <!-- End Video BG Init -->
+      
                 <div class="home-text">
                     
                     <h1 class="hs-line-8 no-transp font-alt mb-50 mb-xs-30">
@@ -39,11 +39,11 @@
                     </div>
                     
                 </div>
-            </div>
-            <!-- End Hero Content -->
+            
+            </div><!-- End Hero Content -->
             
             <!-- Scroll Down -->
-            <div class="local-scroll">
+            <div class="local-scroll scrollto-next-section">
                 <a href="#about" class="scroll-down"><i class="fa fa-angle-down scroll-down-icon"></i></a>
             </div>
             <!-- End Scroll Down -->
