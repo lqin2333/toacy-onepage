@@ -4170,7 +4170,8 @@ a.logo:hover{
 }
 
 a.link-to-top{
-    position: absolute;
+    position: fixed;
+    display: none;
     bottom: 20px;
     right: 20px;
     width: 40px;

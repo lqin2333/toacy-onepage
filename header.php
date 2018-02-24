@@ -23,6 +23,7 @@
         <link rel="stylesheet" href="<?php echo get_site_url(); ?>/wp-content/themes/toacy-onepage/css/vertical-rhythm.min.css">
         <link rel="stylesheet" href="<?php echo get_site_url(); ?>/wp-content/themes/toacy-onepage/css/owl.carousel.css">
         <link rel="stylesheet" href="<?php echo get_site_url(); ?>/wp-content/themes/toacy-onepage/css/magnific-popup.css">
+         <link rel="stylesheet" href="<?php echo get_site_url(); ?>/wp-content/themes/toacy-onepage/style.css">
         <!-- <link rel="stylesheet" href="css/main.min.css">  -->
 
         <?php wp_head(); ?>
@@ -56,7 +57,7 @@
                         <i class="fa fa-bars"></i>
                     </div>
                     <!-- Main Menu -->
-                    <div class="inner-nav desktop-nav">
+                    <!-- <div class="inner-nav desktop-nav">
                         <ul class="clearlist scroll-nav local-scroll">
                             <li class="active"><a href="#home">Home</a></li>
                             <li><a href="#about">About</a></li>
@@ -66,7 +67,25 @@
                             <li><a href="#contact">Contacts</a></li>
                             
                         </ul>
-                    </div>
+                    </div>  -->
+                    
+
+                      <?php
+                           wp_nav_menu( array(
+                               'menu'              => 'main-menu',
+                               'theme_location'    => 'main-menu',
+                               'depth'             => 3,
+                               'container'         => 'div',
+                               'container_class'   => 'inner-nav desktop-nav',
+                               'container_id'      => 'bs-example-navbar-collapse-1',
+                               'menu_class'        => 'clearlist scroll-nav local-scroll',
+                               //'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+                               //'walker'            => new wp_bootstrap_navwalker()
+                               )
+                           );
+                       ?>  
+
+                  
                 </div>
             </nav>
             <!-- End Navigation panel -->
@@ -75,25 +94,7 @@
 
 
   
-      <!-- 
-        <div class="blog-masthead">
-          <div class="container">
-            <nav class="blog-nav">
-              <?php
-                   // wp_nav_menu( array(
-                   //     'menu'              => 'primary',
-                   //     'theme_location'    => 'primary',
-                   //     'depth'             => 2,
-                   //     'container'         => 'div',
-                   //     'container_class'   => 'collapse navbar-collapse',
-                   //     'container_id'      => 'bs-example-navbar-collapse-1',
-                   //     'menu_class'        => 'nav navbar-nav',
-                   //     'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                   //     'walker'            => new wp_bootstrap_navwalker())
-                   // );
-               ?>  
-            </nav>
-          </div>
-        </div>
-      -->
+
+        
+
 

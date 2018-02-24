@@ -2,8 +2,8 @@
 
 /*============= init css and scripts =============*/
 function toacy_script_enqueue(){
-	//wp_enqueue_style('toacystyle-skin', get_template_directory_uri().'/css/skin/skin1.css', array(), '1.0', 'all');
-	//wp_enqueue_script('toacyjs', get_template_directory_uri().'/js/main.js', array(), '1.0', true);
+   //wp_enqueue_style('toacystyle-skin', get_template_directory_uri().'/css/skin/skin1.css', array(), '1.0', 'all');
+   //wp_enqueue_script('toacyjs', get_template_directory_uri().'/js/main.js', array(), '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'toacy_script_enqueue');
 
@@ -16,15 +16,15 @@ add_filter('wp_nav_menu','change_submenu_class');
 
 /*============= init widgets =============*/
 function toacy_onepage_widgets_init() {
-	register_sidebar( array(
-		'name'          => "Home Sections",
-		'id'            => 'home-sections',
-		'description'   => __( 'Add page widgets here to appear in home page.', 'toacy-onepage' ),
-		'before_widget' => '<section>',
-		'after_widget'  => '</section><hr class="mt-0 mb-0 ">',
-		'before_title'  => '<h2 class="section-title font-alt align-left mb-70 mb-sm-40">',
-		'after_title'   => '</h2>',
-	) );
+   register_sidebar( array(
+      'name'          => "Home Sections",
+      'id'            => 'home-sections',
+      'description'   => __( 'Add page widgets here to appear in home page.', 'toacy-onepage' ),
+      'before_widget' => '<section>',
+      'after_widget'  => '</section><hr class="mt-0 mb-0 ">',
+      'before_title'  => '<h2 class="section-title font-alt align-left mb-70 mb-sm-40">',
+      'after_title'   => '</h2>',
+   ) );
 }
 add_action( 'widgets_init', 'toacy_onepage_widgets_init' );
 add_theme_support( 'post-thumbnails' );
@@ -299,46 +299,34 @@ class one_page_parallax_section_widget extends WP_Widget {
       if( !empty( $menu_id ) )
          $section_id = 'id="' . $menu_id . '"';
 
-      $background_url = get_site_url().'/wp-content/themes/toacy-onepage/images/full-width-images/section-bg-2.jpg';
-      //if( has_post_thumbnail() ) 
-      //   $background_url = get_the_post_thumbnail_url();
+      if( $page_id ) : 
+         $the_query = new WP_Query( 'page_id='.$page_id );
+         while( $the_query->have_posts() ):$the_query->the_post(); 
 
+            $background_url = get_site_url().'/wp-content/themes/toacy-onepage/images/full-width-images/section-bg-2.jpg';
+            // if( has_post_thumbnail()){
+            //    $background_url = get_the_post_thumbnail_url();
+            // }
+            echo $before_widget; ?>
+            <div <?php echo $section_id; ?>  class="page-section pt-0 pb-0 banner-section bg-dark"   
+               style="background-image: url('<?php echo $background_url; ?>');">
 
-
-      echo $before_widget; ?>
-      <div <?php echo $section_id; ?>  class="page-section pt-0 pb-0 banner-section bg-dark"   
-         style="background-image: url('<?php echo $background_url; ?>');">
-
-         <div class="container relative">
-               <div class="row">
-                  <?php if( $page_id ) : ?>
-                     <?php
-                     $the_query = new WP_Query( 'page_id='.$page_id );
-                     while( $the_query->have_posts() ):$the_query->the_post();
-                        $title_attribute = the_title_attribute( 'echo=0' );
-
-                        if( has_post_thumbnail() ) { ?>
-                           <div class="page-image tg-column-2">
-                              <?php echo get_the_post_thumbnail_url(); ?>
-                           </div>
-                        <?php } ?>
-
-                        <div class="page-content tg-column-2">
-                           <?php
-                           $output .= '<div class="section-text mb-50 mb-sm-20">' . '<p>' . the_content() . '</p></div>';
-                           if ( !empty ( $button_text ) ) {
-                              $output .= '<a href="' . $button_url . '">' . esc_html( $button_text ) . '<i class="fa ' . $button_icon . '"></i></a>';
-                           }
-                           echo $output;
-                           ?>
-                        </div>
-                     <?php endwhile;
-                     // Reset Post Data
-                     wp_reset_query(); ?>
-                  <?php endif; ?>
-               </div>
-         </div><!--  container relative -->
-      </div> <!-- page-section -->
+               <div class="container relative">
+                     <div class="row">
+                        <?php
+                        $output .= the_content();
+                        if ( !empty ( $button_text ) ) {
+                           $output .= '<a href="' . $button_url . '">' . esc_html( $button_text ) . '<i class="fa ' . $button_icon . '"></i></a>';
+                        }
+                        echo $output;
+                        ?>
+                     </div>
+               </div><!--  container relative -->
+            </div> <!-- page-section -->
+         <?php endwhile;
+         // Reset Post Data
+         wp_reset_query(); ?>
+      <?php endif; ?>
    <?php echo $after_widget;
    }
 }

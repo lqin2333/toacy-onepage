@@ -25,7 +25,7 @@
                   
                   <!-- Copyright -->
                   <div class="footer-copy font-alt">
-                      <a href="http://themeforest.net/user/theme-guru/portfolio" target="_blank">&copy; Rhythm 2016</a>.
+                      <p>&copy; 2014 - <?php echo Date('Y'); ?>  <?php bloginfo('name'); ?></p>
                   </div>
                   <!-- End Copyright -->
                   
@@ -46,9 +46,9 @@
            <!-- End Top Link -->
 
 
-            <p>&copy; <?php echo Date('Y'); ?> - <?php bloginfo('name'); ?></p>
-            <p>
-              <a href="#">Back to top</a>
+            
+            <p class="bottom-to-top">
+              <span>back to top</span>
             </p>
             
       </footer>
@@ -115,7 +115,22 @@
               $('.mbYTP_wrapper').css('transform', 'translate3d(0, ' + (scrolled * 0.25) + 'px, 0)'); // parallax (25% scroll rate)
               //$('#').css('height', 'translate3d(0, ' + -(scrolled * 0.25) + 'px, 0)'); // parallax (25% scroll rate)
               
-          });
+             
+              if (scrolled >= 50) {        // If page is scrolled more than 50px
+                  $('.link-to-top').fadeIn(200);    // Fade in the arrow
+              } else {
+                  $('.link-to-top').fadeOut(200);   // Else fade out the arrow
+              }
+
+             
+             
+
+            });
+
+            $('.bottom-to-top').click(function(){
+              $('.link-to-top').click();
+            });
+
 
 
            // transform: translate3d(0px, 163.5px, 0px);
