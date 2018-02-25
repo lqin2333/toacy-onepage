@@ -10,7 +10,7 @@
 <?php get_header(); ?>
 
     <!-- Home Section -->
-    <section class="home-section bg-gray bg-light-alfa-50 parallax-2" data-background="<?php bloginfo('template_url'); ?>/images/full-width-images/section-bg-7.jpg" id="home">
+    <section class="home-section bg-gray bg-light-alfa-50 parallax-2" data-background="<?php bloginfo('template_url'); ?>/images/full-width-images/home-bg1.jpg" id="home">
         <div class="js-height-full">
             
             <!-- Hero Content -->
@@ -21,22 +21,16 @@
 
                
                  <!-- End Video BG Init -->
-      
                 <div class="home-text">
                     
-                    <h1 class="hs-line-8 no-transp font-alt mb-50 mb-xs-30">
-                        Branding / Design / Development / Photo
-                    </h1>
-                    
-                    <h2 class="hs-line-14 font-alt mb-50 mb-xs-30">
-                        We love design
+                    <h1 class="hs-line-8 no-transp font-alt mb-50 mb-xs-30">设计 / 开发 / 推广</h1>
+                    <h2 class="typewrite font-alt mb-50 mb-xs-30" data-period="2000" data-type='[ "专业的网站设计,开发及推广团队", "有效的互联网营销方案","让您在众多竞争者中脱颖而出！" ]'>
+                        <span class="wrap"></span>
                     </h2>
-                    
-                    <div class="local-scroll">
-                        <a href="#about" class="btn btn-mod btn-medium btn-round hidden-xs">See More</a>
-                        <span class="hidden-xs">&nbsp;</span>
-                        <a href="pages-pricing-1.html" class="btn btn-mod btn-medium btn-round">Get Pricing</a>
+                    <div class="mb-10  local-scroll scrollto-next-section">
+                        <a href="#about" class="btn btn-mod btn-large btn-round">了解一下</a>
                     </div>
+                    
                     
                 </div>
             

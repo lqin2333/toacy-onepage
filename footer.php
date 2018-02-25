@@ -88,53 +88,7 @@
       <script type="text/javascript" src="<?php echo get_site_url(); ?>/wp-content/themes/toacy-onepage/js/jquery.mb.YTPlayer.js"></script>       
       <!--[if lt IE 10]><script type="text/javascript" src="js/placeholder.js"></script><![endif]-->
       <!-- -->
-
-       <script>
-          // let value = 0;
-          // let lastScrollTop = 0;
-          // $( window ).scroll(function(event) {
-
-          //    let st = $(this).scrollTop();
-          //    if (st > lastScrollTop){
-          //       value += 30;
-          //    } else {
-          //       value -= 30;
-          //    }
-          //    lastScrollTop = st;
-
-              
-          //     $('.player').css({"transform": "translate3d(0px, " + value + "px, 0px)"});
-          // });
-
-           $(window).on('load scroll', function () {
-              var scrolled = $(this).scrollTop();
-              // $('.mbYTP_wrapper').css({
-              //     'transform': 'translate3d(0, ' + -(scrolled * 0.2) + 'px, 0)', // parallax (20% scroll rate)
-              //     'opacity': 1 - scrolled / 400 // fade out at 400px from top
-              // });
-              $('.mbYTP_wrapper').css('transform', 'translate3d(0, ' + (scrolled * 0.25) + 'px, 0)'); // parallax (25% scroll rate)
-              //$('#').css('height', 'translate3d(0, ' + -(scrolled * 0.25) + 'px, 0)'); // parallax (25% scroll rate)
-              
-             
-              if (scrolled >= 50) {        // If page is scrolled more than 50px
-                  $('.link-to-top').fadeIn(200);    // Fade in the arrow
-              } else {
-                  $('.link-to-top').fadeOut(200);   // Else fade out the arrow
-              }
-
-             
-             
-
-            });
-
-            $('.bottom-to-top').click(function(){
-              $('.link-to-top').click();
-            });
-
-
-
-           // transform: translate3d(0px, 163.5px, 0px);
-        </script>
+      <script type="text/javascript" src="<?php echo get_site_url(); ?>/wp-content/themes/toacy-onepage/js/toacy.js"></script>    
 
   </body>
 </html>

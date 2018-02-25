@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Rhythm &mdash; One & Multi Page Creative Theme</title>
+        <title><?php echo get_the_title(); ?></title>
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta charset="utf-8">
@@ -39,56 +39,33 @@
         <!-- Page Wrap -->
         <div class="page" id="top">
 
-
-            <!-- Navigation panel -->
-            <nav class="main-nav transparent stick-fixed">
-                <div class="full-wrapper relative clearfix">
-                    <!-- Logo ( * your text or image into link tag *) -->
-                    <div class="nav-logo-wrap local-scroll">
-                        <a href="#top" class="logo">
-                            <img src="<?php bloginfo('template_url'); ?>/images/logo-dark.png" alt="" />
-                            <!-- 
-                              <h1 class="blog-title"><?php bloginfo('name'); ?></h1> 
-                              <p class="lead blog-description"><?php bloginfo('description'); ?></p>
-                            -->
-                        </a>
-                    </div>
-                    <div class="mobile-nav">
-                        <i class="fa fa-bars"></i>
-                    </div>
-                    <!-- Main Menu -->
-                    <!-- <div class="inner-nav desktop-nav">
-                        <ul class="clearlist scroll-nav local-scroll">
-                            <li class="active"><a href="#home">Home</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#services">Services</a></li>
-                            <li><a href="#portfolio">Portfolio</a></li>
-                            <li><a href="#news">News</a></li>
-                            <li><a href="#contact">Contacts</a></li>
-                            
-                        </ul>
-                    </div>  -->
-                    
-
-                      <?php
-                           wp_nav_menu( array(
-                               'menu'              => 'main-menu',
-                               'theme_location'    => 'main-menu',
-                               'depth'             => 3,
-                               'container'         => 'div',
-                               'container_class'   => 'inner-nav desktop-nav',
-                               'container_id'      => 'bs-example-navbar-collapse-1',
-                               'menu_class'        => 'clearlist scroll-nav local-scroll',
-                               //'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                               //'walker'            => new wp_bootstrap_navwalker()
-                               )
-                           );
-                       ?>  
-
-                  
+        <!-- Navigation panel -->
+        <nav class="main-nav transparent stick-fixed">
+            <div class="full-wrapper relative clearfix">
+                <div class="nav-logo-wrap local-scroll">
+                    <a href="#top" class="logo">
+                        <img src="<?php bloginfo('template_url'); ?>/images/logo.png" alt="seed tech" />
+                    </a>
                 </div>
-            </nav>
-            <!-- End Navigation panel -->
+                <div class="mobile-nav">
+                    <i class="fa fa-bars"></i>
+                </div>
+                <!-- Main Menu -->      
+                    <?php
+                        wp_nav_menu( array(
+                            'menu'              => 'main-menu',
+                            'theme_location'    => 'main-menu',
+                            'depth'             => 3,
+                            'container'         => 'div',
+                            'container_class'   => 'inner-nav desktop-nav',
+                            'container_id'      => 'bs-example-navbar-collapse-1',
+                            'menu_class'        => 'clearlist scroll-nav local-scroll',
+                            )
+                        );
+                    ?>  
+            </div>
+        </nav>
+        <!-- End Navigation panel -->
 
 
 
