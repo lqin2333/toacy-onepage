@@ -12,15 +12,15 @@
   <section class="small-section bg-gray-lighter blog-breadcrumbs">
     <div class="relative container align-left">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-4">
                 <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">Blog</h1>
                 <div class="hs-line-4 font-alt black">
                     We share our best ideas in our blog
                 </div>
             </div>
-            <div class="col-md-4 mt-30">
+            <div class="col-md-8 mt-30">
                 <div class="mod-breadcrumbs font-alt align-right">
-                    <a href="#">Home</a>&nbsp;/&nbsp;<a href="#">Blog</a>&nbsp;/&nbsp;<span>Classic</span>
+                  <?php the_breadcrumb(); ?>
                 </div>
             </div>
         </div>
@@ -33,60 +33,11 @@
       <div class="row">
         <!-- Sidebar -->
         <div class="col-sm-4 col-md-3 sidebar">
-          
-          <!-- Search Widget -->
-          <div class="widget">
-            <form class="form-inline form" role="form">
-              <div class="search-wrap">
-                <button class="search-button animate" type="submit" title="Start Search">
-                  <i class="fa fa-search"></i>
-                </button>
-                <input type="text" class="form-control search-field" placeholder="Search...">
-              </div>
-            </form>
-          </div>
-          <!-- End Search Widget -->
-          
-          <!-- Widget -->
-          <div class="widget">
-            <h5 class="widget-title font-alt">Categories</h5>
-            <div class="widget-body">
-              <ul class="clearlist widget-menu">
-                <li>
-                  <a href="#" title="">Branding</a>
-                  <small>
-                    - 7
-                  </small>
-                </li>
-                <li>
-                  <a href="#" title="">Design</a>
-                  <small>
-                    - 15
-                  </small>
-                </li>
-                <li>
-                  <a href="#" title="">Development</a>
-                  <small>
-                    - 3
-                  </small>
-                </li>
-                <li>
-                  <a href="#" title="">Photography</a>
-                  <small>
-                    - 5
-                  </small>
-                </li>
-                <li>
-                  <a href="#" title="">Other</a>
-                  <small>
-                    - 1
-                  </small>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- End Widget -->
+          <?php if ( is_active_sidebar( 'blog-sidebar' ) ) : ?>
+                  <?php dynamic_sidebar( 'blog-sidebar' ); ?>
+          <?php endif; ?>
 
+         
         </div>
         <!-- End Sidebar -->
 
@@ -150,19 +101,5 @@
   </section>
 
 
-  <section class="page-section">
-    <div id="container relative">
-      <div class="container">
-        <div class="row">
-          <?php if (have_posts()) : ?>
-            <?php while (have_posts()) : the_post(); ?>
-              <h1><a href="<?php the_permalink();?>" ><?php the_title(); ?> </a></h1>
-              <h4><?php echo get_the_date(); ?></h4>
-              <p><?php the_content(); ?></p>
-            <?php endwhile; ?>
-          <?php endif; ?>
-        </div>
-      </div>
-    </div>
-  </section>
+
 <?php get_footer(); ?>
