@@ -63,7 +63,7 @@ class one_page_section_widget extends WP_Widget
     {
         $widget_ops = array( 'classname' => 'widget_page_section', 'description' => __('Show the page in section.', 'toacy-onepage') );
         $control_ops = array( 'width' => 200, 'height' =>250 );
-        parent::__construct(false, $name = __('Page as section', 'toacy-onepage'), $widget_ops, $control_ops);
+        parent::__construct(false, $name = __('TOACY: Page as section', 'toacy-onepage'), $widget_ops, $control_ops);
     }
 
     public function form($instance)
@@ -232,7 +232,7 @@ class one_page_parallax_section_widget extends WP_Widget
     {
         $widget_ops = array( 'classname' => 'parallax_section', 'description' => __('Show content with parallax background.', 'toacy-onepage') );
         $control_ops = array( 'width' => 200, 'height' =>250 );
-        parent::__construct(false, $name = __('Parallax background section', 'toacy-onepage'), $widget_ops, $control_ops);
+        parent::__construct(false, $name = __('TOACY: Parallax background section', 'toacy-onepage'), $widget_ops, $control_ops);
     }
 
     public function form($instance)
@@ -376,7 +376,7 @@ class Toacy_Categories_Widget extends WP_Widget
     public function Toacy_Categories_Widget()
     {
         $widget_ops = array( 'classname' => 'widget_categories', 'description' => __("My list or dropdown of categories") );
-        $this->WP_Widget('my_categories', __('Toacy Categories'), $widget_ops);
+        $this->WP_Widget('my_categories', __('TOACY: Categories'), $widget_ops);
     }
 
     public function widget($args, $instance)
