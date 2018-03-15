@@ -171,13 +171,13 @@ class one_page_section_widget extends WP_Widget
          <div class="container relative">
                <div class="section-title-wrapper">
                   <?php if (!empty($title)) {
-            echo $before_title . esc_html($title) . $after_title;
-        }
-        if (!empty($text)) {
-            ?>
-                     <h4 class="sub-title"><?php echo esc_textarea($text); ?></h4>
-                  <?php
-        } ?>
+                        echo $before_title . esc_html($title) . $after_title;
+                    }
+                    if (!empty($text)) {
+                        ?>
+                                <h4 class="sub-title"><?php echo esc_textarea($text); ?></h4>
+                            <?php
+                    } ?>
                </div>
 
                <?php if ($page_id) : ?>
@@ -340,22 +340,30 @@ class one_page_parallax_section_widget extends WP_Widget
         while ($the_query->have_posts()):$the_query->the_post();
 
         $background_url = get_site_url().'/wp-content/themes/toacy-onepage/images/full-width-images/section-bg-2.jpg';
-        // if( has_post_thumbnail()){
-        //    $background_url = get_the_post_thumbnail_url();
-        // }
+        if( has_post_thumbnail()){
+           $background_url = get_the_post_thumbnail_url();
+        }
         echo $before_widget; ?>
-            <div <?php echo $section_id; ?>  class="page-section pt-0 pb-0 banner-section bg-dark"   
+            <div <?php echo $section_id; ?>  class="page-section banner-section bg-dark"   
                style="background-image: url('<?php echo $background_url; ?>');">
 
-               <div class="container relative">
-                     <div class="row">
+                <div class="container relative">
+                    <div class="section-title-wrapper">
+                        <?php if (!empty($title)) {
+                            echo $before_title . esc_html($title) . $after_title;
+                        }
+                        if (!empty($text)) {
+                        ?>
+                                <h4 class="sub-title"><?php echo esc_textarea($text); ?></h4>
+                        <?php } ?>
+                    </div>
                         <?php
                         $output .= the_content();
-        if (!empty($button_text)) {
-            $output .= '<a href="' . $button_url . '">' . esc_html($button_text) . '<i class="fa ' . $button_icon . '"></i></a>';
-        }
-        echo $output; ?>
-                     </div>
+                        if (!empty($button_text)) {
+                            $output .= '<a href="' . $button_url . '">' . esc_html($button_text) . '<i class="fa ' . $button_icon . '"></i></a>';
+                        }
+                        echo $output; 
+                        ?>
                </div><!--  container relative -->
             </div> <!-- page-section -->
          <?php endwhile;
