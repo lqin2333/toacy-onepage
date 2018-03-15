@@ -4,7 +4,7 @@
 function toacy_script_enqueue()
 {
     //wp_enqueue_style('toacystyle-skin', get_template_directory_uri().'/css/skin/skin1.css', array(), '1.0', 'all');
-   //wp_enqueue_script('toacyjs', get_template_directory_uri().'/js/main.js', array(), '1.0', true);
+    //wp_enqueue_script('toacyjs', get_template_directory_uri().'/js/main.js', array(), '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'toacy_script_enqueue');
 
@@ -121,7 +121,7 @@ class one_page_section_widget extends WP_Widget
       <p>
          <?php
          $url = 'http://fontawesome.io/icons/';
-        $link = sprintf(__('<a href="%s" target="_blank">Refer here</a> For Icon Class', 'toacy-onepage'), esc_url($url));
+         $link = sprintf(__('<a href="%s" target="_blank">Refer here</a> For Icon Class', 'toacy-onepage'), esc_url($url));
         echo $link; ?>
       </p>
    <?php
@@ -290,7 +290,7 @@ class one_page_parallax_section_widget extends WP_Widget
       <p>
          <?php
          $url = 'http://fontawesome.io/icons/';
-        $link = sprintf(__('<a href="%s" target="_blank">Refer here</a> For Icon Class', 'toacy-onepage'), esc_url($url));
+         $link = sprintf(__('<a href="%s" target="_blank">Refer here</a> For Icon Class', 'toacy-onepage'), esc_url($url));
         echo $link; ?>
       </p>
    <?php
