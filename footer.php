@@ -1,7 +1,7 @@
 
 
             <!-- Foter -->
-      <footer class="page-section bg-gray-lighter footer pb-60 ">
+            <footer class="page-section bg-gray-lighter footer pb-60 ">
           <div class="container">
               
               <!-- Footer Logo -->
@@ -12,11 +12,9 @@
               
               <!-- Social Links -->
               <div class="footer-social-links mb-110 mb-xs-60">
-                  <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                  <a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
-                  <a href="#" title="Behance" target="_blank"><i class="fa fa-behance"></i></a>
-                  <a href="#" title="LinkedIn+" target="_blank"><i class="fa fa-linkedin"></i></a>
-                  <a href="#" title="Pinterest" target="_blank"><i class="fa fa-pinterest"></i></a>
+                  <a href="#" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                  <a href="#" title="Pinterest" target="_blank"><i class="fab fa-pinterest-p"></i></a>
               </div>
               <!-- End Social Links -->  
               
@@ -77,7 +75,7 @@
       <script type="text/javascript" src="<?php echo get_site_url(); ?>/wp-content/themes/toacy-onepage/js/imagesloaded.pkgd.min.js"></script>
       <script type="text/javascript" src="<?php echo get_site_url(); ?>/wp-content/themes/toacy-onepage/js/jquery.magnific-popup.min.js"></script>
 
-      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZsDkJFLS0b59q7cmW0EprwfcfUA8d9dg"></script>
+      <!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZsDkJFLS0b59q7cmW0EprwfcfUA8d9dg"></script>-->
       <script type="text/javascript" src="<?php echo get_site_url(); ?>/wp-content/themes/toacy-onepage/js/gmap3.min.js"></script>
       <script type="text/javascript" src="<?php echo get_site_url(); ?>/wp-content/themes/toacy-onepage/js/wow.min.js"></script>
       <script type="text/javascript" src="<?php echo get_site_url(); ?>/wp-content/themes/toacy-onepage/js/masonry.pkgd.min.js"></script>
