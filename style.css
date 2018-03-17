@@ -18,8 +18,9 @@ Text Domain: toacy-onepage
 .form textarea{height:84px;}
 
 /*--- Service Page ---*/
+#services h2.section-title{color:#0e0e0e;}
 .service-block{text-align: center; padding: 10px;}
-.service-block-wrapper{background: rgba(45, 45, 45, 0.8); padding: 30px; min-height: 290px;border-radius: 4px;}
+.service-block-wrapper{background: #f3f3f3bf; padding: 30px; min-height: 290px; border-radius: 4px; color: #353535;}
 .service-block-wrapper i{font-size:30px;}
 .service-block-wrapper h3{font-size:18px;}
 

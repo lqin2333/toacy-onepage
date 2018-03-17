@@ -27,6 +27,7 @@
         <!-- <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet"> -->
         <link rel="stylesheet" href="<?php echo get_site_url(); ?>/wp-content/themes/toacy-onepage/style.css">
         <!-- <link rel="stylesheet" href="css/main.min.css">  -->
+        <!-- <link rel="stylesheet" href="css/main.min.css">  -->
 
         <?php wp_head(); ?>
 
