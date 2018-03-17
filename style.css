@@ -19,6 +19,9 @@ Text Domain: toacy-onepage
 
 /*--- Service Page ---*/
 .service-block{text-align: center; padding: 10px;}
-.service-block-wrapper{background: rgba(255, 255, 255, 0.18); padding: 30px; min-height: 290px;}
+.service-block-wrapper{background: rgba(45, 45, 45, 0.8); padding: 30px; min-height: 290px;border-radius: 4px;}
 .service-block-wrapper i{font-size:30px;}
 .service-block-wrapper h3{font-size:18px;}
+
+/*--- form7 ---*/
+.pt-10 .wpcf7-submit{margin-right:-18px;}
