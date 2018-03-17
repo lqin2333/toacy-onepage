@@ -6,7 +6,7 @@
               
               <!-- Footer Logo -->
               <div class="local-scroll mb-30 wow fadeInUp" data-wow-duration="1.2s">
-                  <a href="#top"><img src="<?php echo get_site_url(); ?>/wp-content/themes/toacy-onepage/images/logo-footer.png" width="78" height="36" alt="" /></a>
+                  <a href="#top"><img src="<?php echo get_site_url(); ?>/wp-content/themes/toacy-onepage/images/logo.png" alt="seed tech" /></a>
               </div>
               <!-- End Footer Logo -->
               
