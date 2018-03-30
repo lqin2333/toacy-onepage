@@ -56,6 +56,18 @@ function wpb_load_widget()
 }
 add_action('widgets_init', 'wpb_load_widget');
 
+
+/*============= Search form filter =============*/
+if (!is_admin()) {
+    function wpb_search_filter($query) {
+        if ($query->is_search) {
+            $query->set('post_type', 'post');
+        }
+        return $query;
+    }
+    add_filter('pre_get_posts','wpb_search_filter');
+}
+
 /*============= normal page section =============*/
 class one_page_section_widget extends WP_Widget
 {
@@ -339,13 +351,15 @@ class one_page_parallax_section_widget extends WP_Widget
             $the_query = new WP_Query('page_id='.$page_id);
             while ($the_query->have_posts()):$the_query->the_post();
 
-                $background_url = get_site_url().'/wp-content/themes/toacy-onepage/images/full-width-images/section-bg-2.jpg';
+                //$background_url = get_site_url().'/wp-content/themes/toacy-onepage/images/full-width-images/section-bg-2.jpg';
+                $background_url ="";
                 if( has_post_thumbnail()){
                     $background_url = get_the_post_thumbnail_url();
                 }
                 echo $before_widget; ?>
-                <div <?php echo $section_id; ?>  class="page-section banner-section bg-dark-alfa-30 parallax-3"
-                                                 style="background-image: url('<?php echo $background_url; ?>');">
+                <div <?php echo $section_id; ?>
+                        class="page-section banner-section parallax-3 <?php if(!$background_url){echo'gradual-bg';} ?>"
+                <?php if($background_url){echo 'style="background-image: url('.$background_url.');"';} ?> >
 
                     <div class="container relative">
                         <div class="section-title-wrapper">

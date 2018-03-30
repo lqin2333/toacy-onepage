@@ -18,11 +18,57 @@ Text Domain: toacy-onepage
 .form textarea{height:84px;}
 
 /*--- Service Page ---*/
-#services h2.section-title{color:#0e0e0e;}
+#services h2.section-title{color:#000;}
 .service-block{text-align: center; padding: 10px;}
-.service-block-wrapper{background: #f3f3f3bf; padding: 30px; min-height: 290px; border-radius: 4px; color: #353535;}
+.service-block-wrapper{padding: 40px 30px 10px 30px; min-height: 285px; color: #fff; background: rgba(0, 0, 0, 0.5);}
 .service-block-wrapper i{font-size:30px;}
 .service-block-wrapper h3{font-size:18px;}
+.gradual-bg
+{
+    background: linear-gradient(-45deg, #afafaf, #313131);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 10s ease infinite;
+    -moz-animation: Gradient 10s ease infinite;
+    animation: Gradient 10s ease infinite;
+}
+@-webkit-keyframes Gradient {
+    0% {background-position: 0% 50%}
+    50% {background-position: 100% 50%}
+    100% { background-position: 0% 50%}
+}
+
+@-moz-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+/*--- clients page ---*/
+#our-clients a img{cursor: pointer; filter: grayscale(100%); -webkit-filter: grayscale(100%); transition: .5s;}
+#our-clients a img:hover{filter: grayscale(0%); -webkit-filter: grayscale(0%);}
+.clients-page-des{margin-top: -50px;}
 
 /*--- form7 ---*/
 .pt-10 .wpcf7-submit{margin-right:-18px;}
+div.wpcf7-mail-sent-ok{border:2px solid #000000!important;}
+
+/*--- custom css ---*/
+.pd-0{padding:0px;}
